@@ -52,7 +52,7 @@ nav li {
     margin: 20px;
 }
 
-/* RESPONSIVE RULES */
+/* RESPONSIVE RULES 必会的响应式交互 */
 @media screen and (max-width: 838px) {
     header {
         height: 250px;
