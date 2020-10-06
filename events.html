@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        img {
+            width: 200px;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Javascript Events</h1>
+    </header>
+    <main>
+        <!-- 栗子1 -->
+        <h4>Add Numbers</h4>
+        <p>
+            <input id="num-one"> + <input id="num-two">
+        </p>
+        <p id="add-sum"></p>
+
+
+        <!-- 栗子2 -->
+        <h4>Picture</h4>
+        <ul>
+            <li><a data-img="simon-pic" id="simon" href="#">Simon Cowell</a></li>
+            <li><a data-img="bruce-pic" id="bruce" href="#">Bruce Willis</a></li>
+            <li><a data-img="ben-pic" id="ben" href="#">Ben Carson</a></li>
+        </ul>
+
+        <img class="hide" id="simon-pic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Sly_Things_3.jpg/944px-Sly_Things_3.jpg" alt="">
+        <img class="hide" id="bruce-pic" src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Syd_Straw_%40_the_Pete_%26_Pete_reunion_show_-_Bowery_Ballroom%2C_2012.jpg" alt="">
+        <img class="hide" id="ben-pic" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Pia23378-16.jpg" alt="">
+    </main>
+    <script src="scripts/events.js"></script>
+</body>
+</html>
