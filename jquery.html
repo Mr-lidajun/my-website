@@ -1,122 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jquery</title>
     <style>
-        body {
-            text-align: center;
-        }
+      body {
+        text-align: center;
+      }
 
-        .row {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            align-items: center;
-            /*垂直方向居中*/
-            justify-content: center;
-            /*水平方向居中*/
-        }
+      .row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        /*垂直方向居中*/
+        justify-content: center;
+        /*水平方向居中*/
+      }
 
-        .col-xs-3 {
-            border: 1px solid blue;
-            border-radius: 6%;
-            margin: 20px;
-        }
+      .col-xs-3 {
+        border: 1px solid blue;
+        border-radius: 6%;
+        margin: 20px;
+      }
 
-        .panel-heading {
-            background: rgb(187, 24, 236);
-            padding: 5px;
-        }
+      .panel-heading {
+        background: rgb(187, 24, 236);
+        padding: 5px;
+      }
 
-        .panel-body {
-            padding: 8px;
-        }
+      .panel-body {
+        padding: 8px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <div class="jumbotron">
-            <h1>Let's Have Fun!</h1>
-            <button id="btn1">#btn1</button>
-            <button id="btn2">#btn2</button>
-            <button id="btn3">#btn3</button>
-            <button id="btn4">#btn4</button>
+      <div class="jumbotron">
+        <h1>Let's Have Fun!</h1>
+        <button id="btn1" class="panel-button" data-panelid="panel1">
+          #btn1
+        </button>
+        <button id="btn2" class="panel-button" data-panelid="panel2">
+          #btn2
+        </button>
+        <button id="btn3" class="panel-button" data-panelid="panel3">
+          #btn3
+        </button>
+        <button id="btn4" class="panel-button" data-panelid="panel4">
+          #btn4
+        </button>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3">
+          <div id="panel1" style="display: none" class="panel panel-primary">
+            <div class="panel-heading">#panel1</div>
+            <div class="panel-body">content</div>
+          </div>
         </div>
 
-        <div class="row">
-            <div class="col-xs-3">
-                <div id="panel1" class="panel panel-primary">
-                    <div class="panel-heading">
-                        #panel1
-                    </div>
-                    <div class="panel-body">
-                        content
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xs-3">
-                <div id="panel2" class="panel panel-primary">
-                    <div class="panel-heading">
-                        #panel2
-                    </div>
-                    <div class="panel-body">
-                        content
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xs-3">
-                <div id="panel3" class="panel panel-primary">
-                    <div class="panel-heading">
-                        #panel3
-                    </div>
-                    <div class="panel-body">
-                        content
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xs-3">
-                <div id="panel4" class="panel panel-primary">
-                    <div class="panel-heading">
-                        #panel4
-                    </div>
-                    <div class="panel-body">
-                        content
-                    </div>
-                </div>
-            </div>
+        <div class="col-xs-3">
+          <div id="panel2" style="display: none" class="panel panel-primary">
+            <div class="panel-heading">#panel2</div>
+            <div class="panel-body">content</div>
+          </div>
         </div>
+
+        <div class="col-xs-3">
+          <div id="panel3" style="display: none" class="panel panel-primary">
+            <div class="panel-heading">#panel3</div>
+            <div class="panel-body">content</div>
+          </div>
+        </div>
+
+        <div class="col-xs-3">
+          <div id="panel4" style="display: none" class="panel panel-primary">
+            <div class="panel-heading">#panel4</div>
+            <div class="panel-body">content</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script> 
+    -->
+    <script src="bower_components/jquery-3.5.1.js"></script>
     <script>
-        $(document).ready(function () {
-            console.log("页面全部加载完成，然后运行JS");
+      $(document).ready(function () {
+        console.log("页面全部加载完成，然后运行JS");
+      });
+
+      //简写
+      $(function () {
+        //$("#panel1").hide(300).show(1000).hide(300).show(1000);
+
+        //$("#panel1").slideUp(1000).delay(1000).slideDown(1000);
+
+        //$("#panel1").slideToggle(1000).fadeToggle(1000);
+        // $("#panel1").toggle(1000).toggle(1000);
+
+        // $("#panel1").hide();
+        // $("#panel2").css({
+        //     opacity: '0.5'
+        // });
+
+        // $("#btn1").on('click', function () {
+        //     $('#panel1 .panel-body').html('my new panel content');
+        // });
+
+        // $("#btn1").on('mouseover', function () {
+        //     $("#panel1").fadeOut(200);
+        // });
+        // $("#btn2").on('mouseover', function () {
+        //     $("#panel2").fadeOut(200);
+        // });
+        // $("#btn3").on('mouseover', function () {
+        //     $("#panel3").fadeOut(200);
+        // });
+        // $("#btn4").on('mouseover', function () {
+        //     $("#panel4").fadeOut(200);
+        // });
+
+        // $("#btn1").on('click', function () {
+        //     $("#panel1").fadeIn(200);
+        // });
+        // $("#btn2").on('click', function () {
+        //     $("#panel2").fadeIn(200);
+        // });
+        // $("#btn3").on('click', function () {
+        //     $("#panel3").fadeIn(200);
+        // });
+        // $("#btn4").on('click', function () {
+        //     $("#panel4").fadeIn(200);
+        // });
+
+        // $('#btn1').on('click', function () {
+        //     $('#panel1').toggle();
+        // });
+        // $('#btn2').on('click', function () {
+        //     $('#panel2').toggle();
+        // });
+        // $('#btn3').on('click', function () {
+        //     $('#panel3').toggle();
+        // });
+        // $('#btn4').on('click', function () {
+        //     $('#panel4').toggle();
+        // });
+
+        var content = "My New Awesome Content";
+        $(".panel-button").on("click", function () {
+          var paneId = $(this).attr("data-panelid");
+          $("#" + paneId).toggle();
+
+          $("#" + paneId + " .panel-body").html(content);
         });
-
-        //简写
-        $(function () {
-
-            //$("#panel1").hide(300).show(1000).hide(300).show(1000);
-
-            //$("#panel1").slideUp(1000).delay(1000).slideDown(1000);
-
-            //$("#panel1").slideToggle(1000).fadeToggle(1000);
-            // $("#panel1").toggle(1000).toggle(1000);
-
-            $("#panel1").hide();
-            $("#panel2").css({ 
-                opacity: '0.5'
-            });
-        });
-
+      });
     </script>
-</body>
-
+  </body>
 </html>
