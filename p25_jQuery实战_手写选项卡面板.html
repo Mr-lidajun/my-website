@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery实战 手写选项卡面板</title>
+    <link rel="stylesheet" href="jquery.css">
+</head>
+<body>
+    <div class="tab-panels">
+        <ul class="tabs">
+            <li rel="panel1" class="active">panel1</li>
+            <li rel="panel2">panel2</li>
+            <li rel="panel3">panel3</li>
+            <li rel="panel4">panel4</li>
+        </ul>
+        <div id="panel1" class="panel active">
+            cotnetn1<br/>
+            cotnetn1<br/>
+            cotnetn1<br/>
+            cotnetn1<br/>
+            cotnetn1<br/>
+        </div>
+        <div id="panel2" class="panel">
+            content2<br/>
+            content2<br/>
+            content2<br/>
+            content2<br/>
+            content2<br/>
+        </div>
+        <div id="panel3" class="panel">
+            content3<br/>
+            content3<br/>
+            content3<br/>
+            content3<br/>
+            content3<br/>
+        </div>
+        <div id="panel4" class="panel">
+            content4<br/>
+            content4<br/>
+            content4<br/>
+            content4<br/>
+            content4<br/>
+        </div>
+    </div>
+
+    <div class="tab-panels">
+        <ul class="tabs">
+            <li rel="panel5" class="active">panel5</li>
+            <li rel="panel6">panel6</li>
+            <li rel="panel7">panel7</li>
+            <li rel="panel8">panel8</li>
+        </ul>
+        <div id="panel5" class="panel active">
+            cotnetn5<br/>
+            cotnetn5<br/>
+            cotnetn5<br/>
+            cotnetn5<br/>
+            cotnetn5<br/>
+        </div>
+        <div id="panel6" class="panel">
+            content6<br/>
+            content6<br/>
+            content6<br/>
+            content6<br/>
+            content6<br/>
+        </div>
+        <div id="panel7" class="panel">
+            content7<br/>
+            content7<br/>
+            content7<br/>
+            content7<br/>
+            content7<br/>
+        </div>
+        <div id="panel8" class="panel">
+            content8<br/>
+            content8<br/>
+            content8<br/>
+            content8<br/>
+            content8<br/>
+        </div>
+    </div>
+
+    <script src="bower_components/jquery-3.5.1.js"></script>
+
+    <script>
+        $(function () {
+            $('.tab-panels .tabs li').on('click', function() {
+                //返回被单击li的第一个祖先tab-panels元素
+                var $panel = $(this).closest('.tab-panels');
+                
+                $panel.find('.tabs li.active').removeClass('active');
+                $(this).addClass('active');
+
+                //figure out which panel to show
+                var panelToShow = $(this).attr('rel');
+                console.log('1: ' + panelToShow);
+
+                //hide current panel
+                $panel.find('.panel.active').slideUp(300, showNextPanel);
+
+                //show next panel
+                function showNextPanel() {
+                    $(this).removeClass('active');
+
+                    $('#' + panelToShow).slideDown(300, function() {
+                        console.log('2: ' + panelToShow);
+                        $(this).addClass('active');
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
