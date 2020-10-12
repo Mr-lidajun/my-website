@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery DOM</title>
+    <style>
+        .special {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li>one</li>
+        <li class="special">two</li>
+        <li>three</li>
+        <li>
+            <ul class="sublist">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </li>
+    </ul>
+
+    <script src="bower_components/jquery-3.5.1.js"></script>
+
+    <script>
+        $('li').on('click', function () {
+            console.log('clicked li');
+            // other stuff to all li's
+            if($(this).parent().is('.sublist')) {
+                $(this).hide();
+            }
+        });
+
+
+    </script>
+</body>
+</html>
