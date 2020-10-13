@@ -1,0 +1,23 @@
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #00B7FF;
+}
+
+ul {
+    padding: 20px;
+}
+
+ul li {
+    list-style-type: none;
+    background: #dfdfdf;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+li {
+    display: list-item;
+}
