@@ -31,3 +31,12 @@ Mock.mock('http://test.com/api/addOrders', 'post', function (option) {
         }
     });
 });
+
+//Delete an Order
+Mock.mock(RegExp('http://test.com/api/orders/' + ".*"), 'delete', function(option) {
+    console.log(option);
+    return Mock.mock({
+        status:200,
+        message:'@cword(4,9)'
+    });
+});
